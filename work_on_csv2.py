@@ -8,7 +8,8 @@ def moy(val,step,newval) :
 teams = []
 dico = {}
 
-with open('SaisonsValides/2007:2008.csv') as csvfile :
+nomFichierInput = '2011:2012'
+with open('SaisonsValides/'+nomFichierInput+'.csv') as csvfile :
         reader = csv.reader(csvfile,delimiter=',')
         for row in reader :
 			homeTeam = row[2]
@@ -20,7 +21,7 @@ with open('SaisonsValides/2007:2008.csv') as csvfile :
 
                         
 for team in teams :
-	with open('SaisonsValides/2007:2008.csv') as csvfile :
+	with open('SaisonsValides/'+nomFichierInput+'.csv') as csvfile :
 		reader = csv.reader(csvfile,delimiter=',')
 		L = []
 		#mBmf : moyenne buts marques fin match #mBef : ------- ---- encaisses --- ----- #mBmh : moyenne buts marques mi temps #mBeh : ------- ---- encaisses -- ----- #ms : moyenne shoot #msc : moyenne shoot conscedes #mst : moyenne shoot target #mstc : moyenne shoot target conscedes #mfc : moyenne fautes commises #mfo : moyenne fautes obtenues #mc : moyenne corners #mcc : moyenne corners conscedes #my : moyenne cartons jaunes #mr : moyenne cartons rouges
@@ -94,7 +95,7 @@ for MatchSet in dico.values():
 myfile.close()"""
 
 
-myfile = open('csv-test2.csv', 'w')
+myfile = open('saisonsStatsCSV/'+nomFichierInput+'_Stats.csv', 'w')
 mywriter = csv.writer(myfile, delimiter=',', dialect='excel', lineterminator='\n')
 ListFinalMatch = [] #Liste qui contiendra les matchs (c.a.d les lignes du CSV) 
 positionCurseurCSV = 0 #position du curseur dans le futur CSV
