@@ -29,7 +29,7 @@ for train_index, test_index in skf.split(X_train, Y_train) :
     Y_fold_test = Y_train[test_index]
     accuracy_fold = []
     for mdepth in range(1,5) :
-        model = RandomForestClassifier(n_estimators = 100, criterion = "gini", max_features = "sqrt", max_depth = mdepth, n_jobs = 4, verbose = 0)
+        model = RandomForestClassifier(n_estimators = 500, criterion = "gini", max_features = "sqrt", max_depth = mdepth, n_jobs = 4, verbose = 0)
         model.fit(X_fold_train,Y_fold_train)
         predictions = model.predict(X_fold_test)
         accuracy_fold.append(accuracy_score(Y_fold_test, predictions))
@@ -43,3 +43,4 @@ final_model =  RandomForestClassifier(n_estimators = 100, criterion = "gini", ma
 final_model.fit(X_train,Y_train)
 predictions = final_model.predict(X_test)
 print "Score final du model: %2.2f" % accuracy_score(Y_test,predictions)
+

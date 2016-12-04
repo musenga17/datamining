@@ -13,5 +13,5 @@ for fic in fichiers :
     seasonFile = open('saisonsStatsCSV/'+fic+'','r')
     reader = csv.reader(seasonFile,delimiter=",")
     for row in reader :
-        Xwriter.writerow(row[1:len(row)-1]) #on enlève l'id et le resultat
+        Xwriter.writerow(row[1:len(row)-1])
         Ywriter.writerow(row[len(row)-1:])
