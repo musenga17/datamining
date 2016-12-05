@@ -30,10 +30,10 @@ for nomFichierInput in fichiers :
 		pred = []
 		step = 0
 		tmpPred = []
-		nbPoints, nVDom, nVExt, nDDom, nDExt, nNDom, nNExt, nVCons, nDCons, nNCons, nVDomCons, nVExtCons, nDDomCons, nDExtCons, nNDomCons, nNExtCons = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+		nBP, nBC, nbPoints, nVDom, nVExt, nDDom, nDExt, nNDom, nNExt, nVCons, nDCons, nNCons, nVDomCons, nVExtCons, nDDomCons, nDExtCons, nNDomCons, nNExtCons = 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 		for row in reader :
 			if team == row[3] or team == row[4] :
-				tmp = ['',0,0,False,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+				tmp = ['',0,0,False,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 				tmp[0] = team
 				tmp[1] = row[0]
                                 tmp[2] = row[1]
@@ -58,6 +58,8 @@ for nomFichierInput in fichiers :
 						tmp[15] = moy(tmpPred[15],step,pred[16])
 						tmp[16] = moy(tmpPred[16],step,pred[17])
 						tmp[17] = moy(tmpPred[17],step,pred[19])
+                                                nBP = nBP + int(pred[5])
+                                                nBC = nBC + int(pred[6])
                                                 if pred[21] == 'H' :
                                                         nbPoints = nbPoints + 3
                                                         nVDom = nVDom + 1
@@ -97,6 +99,8 @@ for nomFichierInput in fichiers :
 						tmp[15] = moy(tmpPred[15],step,pred[15])
 						tmp[16] = moy(tmpPred[16],step,pred[18])
 						tmp[17] = moy(tmpPred[17],step,pred[20])
+                                                nBP = nBP + int(pred[6])
+                                                nBC = nBC + int(pred[5])
                                                 if pred[21] == 'A' :
                                                         nbPoints = nbPoints + 3
                                                         nVExt = nVExt + 1
@@ -138,6 +142,8 @@ for nomFichierInput in fichiers :
                                         tmp[31] = nDExtCons
                                         tmp[32] = nNDomCons
                                         tmp[33] = nNExtCons
+                                        tmp[34] = nBP
+                                        tmp[35] = nBC
 				step = step + 1
 				pred = row
 				L.append(tmp)
