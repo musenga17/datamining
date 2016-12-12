@@ -107,9 +107,9 @@ while True :
     X_match = np.array(dico[dom]+dico[ext])
     X_match.reshape(1,-1)
     res = final_model.predict(X_match)[0]
-    if res == 0 :
+    if res == 'H' :
         print dom+'a gagne le match'
-    if res == 1 :
+    if res == 'A' :
         print ext+'a gagne le match'
-    if res == 2 :
+    if res == 'D' :
         print 'match nul'
